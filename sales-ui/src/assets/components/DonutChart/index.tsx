@@ -1,4 +1,3 @@
-import { ApexOptions } from 'apexcharts';
 import Chart from 'react-apexcharts';
 
 function DonutChart() {
