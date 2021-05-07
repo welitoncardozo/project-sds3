@@ -19,14 +19,14 @@ function App() {
           </div>
 
           <div className="col-sm-6">
-            <h5 className="text-center text-secondary">Taxa de Sucesso (%)</h5>
+            <h5 className="text-center text-secondary">Vendas</h5>
 
             <DonutChart />
           </div>
         </div>
 
         <div className="py-3">
-          <h2 className="text-primary">Vendas</h2>
+          <h2 className="text-primary">Vendas Detalhadas</h2>
         </div>
 
         <DataTable />
