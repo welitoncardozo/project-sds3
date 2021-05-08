@@ -18,7 +18,7 @@ public class SellerResource {
         this.service = service;
     }
 
-    @GetMapping()
+    @GetMapping("/all")
     public ResponseEntity<List<SellerDto>> findAll() {
         return ResponseEntity.ok(service.findAll());
     }
