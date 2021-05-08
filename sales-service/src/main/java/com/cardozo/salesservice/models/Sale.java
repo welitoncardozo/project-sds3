@@ -22,12 +22,12 @@ public class Sale {
     @Column(name = "sale_id")
     private Long id;
 
+    @ManyToOne
+    @JoinColumn(name = "seller_id")
+    private Seller seller;
+
     private int visited;
     private int deals;
     private double amount;
     private LocalDate date;
-
-    @ManyToOne
-    @JoinColumn(name = "seller_id")
-    private Seller seller;
 }
