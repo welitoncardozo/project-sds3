@@ -1,5 +1,7 @@
 package com.cardozo.salesservice.models;
 
+import lombok.Getter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import java.util.List;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
+@Getter
 @Entity
 @Table(name = "seller")
 public class Seller {
