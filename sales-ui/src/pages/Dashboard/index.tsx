@@ -6,33 +6,29 @@ import Footer from "../../components/Footer";
 
 function Dashboard() {
   return (
-    <>
-      <NavBar/>
-      <div className="container">
-        <h1 className="text-primary py-3">Dashboard de Vendas</h1>
+    <div className="container">
+      <h1 className="text-primary py-3">Dashboard de Vendas</h1>
 
-        <div className="row px-3">
-          <div className="col-sm-6">
-            <h5 className="text-center text-secondary">Taxa de Sucesso (%)</h5>
+      <div className="row px-3">
+        <div className="col-sm-6">
+          <h5 className="text-center text-secondary">Taxa de Sucesso (%)</h5>
 
-            <BarChart/>
-          </div>
-
-          <div className="col-sm-6">
-            <h5 className="text-center text-secondary">Vendas</h5>
-
-            <DonutChart/>
-          </div>
+          <BarChart />
         </div>
 
-        <div className="py-3">
-          <h2 className="text-primary">Vendas Detalhadas</h2>
-        </div>
+        <div className="col-sm-6">
+          <h5 className="text-center text-secondary">Vendas</h5>
 
-        <DataTable/>
+          <DonutChart />
+        </div>
       </div>
-      <Footer/>
-    </>
+
+      <div className="py-3">
+        <h2 className="text-primary">Vendas Detalhadas</h2>
+      </div>
+
+      <DataTable />
+    </div>
   );
 }
 
