@@ -14,7 +14,7 @@ public class SaleDto {
     private final int deals;
     private final double amount;
     private final LocalDate date;
-    private final SellerDto sellerDto;
+    private final SellerDto seller;
 
     public static SaleDto from(final Sale sale) {
         return SaleDto.builder()
@@ -23,7 +23,7 @@ public class SaleDto {
                 .deals(sale.getDeals())
                 .amount(sale.getAmount())
                 .date(sale.getDate())
-                .sellerDto(SellerDto.from(sale.getSeller()))
+                .seller(SellerDto.from(sale.getSeller()))
                 .build();
     }
 }

@@ -1,4 +1,21 @@
+import { SalePage } from "dtos/sale";
+import { useEffect, useState } from "react";
+import api from "services/api";
+import { formatLocalDate } from "utils/date";
+
 function DataTable() {
+  const [page, setPage] = useState<SalePage>();
+
+  useEffect(() => {
+    api.get('/sales/all')
+      .then(response => response.data)
+      .then((page: SalePage) => setPage(page));
+  }, []);
+
+  if (!page) {
+    return <p>Carregando...</p>;
+  }
+
   return (
     <div className="table-responsive">
       <table className="table table-striped table-sm">
@@ -13,21 +30,17 @@ function DataTable() {
         </thead>
 
         <tbody>
-          <tr>
-            <td>22/04/2021</td>
-            <td>Barry Allen</td>
-            <td>34</td>
-            <td>25</td>
-            <td>15017.00</td>
-          </tr>
-
-          <tr>
-            <td>22/04/2021</td>
-            <td>Wadsfasdf</td>
-            <td>23</td>
-            <td>25</td>
-            <td>15017.00</td>
-          </tr>
+          {
+            page.content?.map(sale => (
+              <tr key={sale.id}>
+                <td>{formatLocalDate(sale.date, 'dd/MM/yyyy')}</td>
+                <td>{sale.seller.name}</td>
+                <td>{sale.visited}</td>
+                <td>{sale.deals}</td>
+                <td>{sale.amount.toFixed(2)}</td>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     </div>
