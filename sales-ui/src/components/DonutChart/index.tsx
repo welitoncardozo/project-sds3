@@ -16,13 +16,17 @@ const getChartDataFromSaleTotal = (saleTotalBySellerList: SaleTotalBySeller[]): 
 }
 
 function DonutChart() {
-  const [chartData, setChartData] = useState<ChartData>({ labels: [], series: [] });
+  const [chartData, setChartData] = useState<ChartData>();
 
   useEffect(() => {
     api.get('/sales/total-by-seller')
       .then(response => response.data)
       .then((saleTotalBySellerList: SaleTotalBySeller[]) => setChartData(getChartDataFromSaleTotal(saleTotalBySellerList)));
   }, []);
+
+  if (!chartData) {
+    return <p>Carregando...</p>;
+  }
 
   const options = {
     legend: {
