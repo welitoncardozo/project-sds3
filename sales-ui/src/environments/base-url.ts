@@ -1,3 +1,1 @@
-const DEVELOPMENT = 'http://localhost:8080';
-
-export const BASE_URL = process.env.BASE_URL_PRODUCTION ?? DEVELOPMENT;
+export const BASE_URL = process.env.BASE_URL_PRODUCTION ?? 'http://localhost:8080';
